@@ -1,116 +1,40 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>¼ôµ¶Ê¯Í·²¼</title>
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
-<script type="text/javascript">
-function start(){ 
-      document.getElementById("a").src="jiandao.jpg";
-	  document.getElementById("b").src="shitou.jpg";
-      document.getElementById("c").src="bu.jpg";
-	  var oneClick = document.getElementById("b");
-      oneClick.style.display="block";
-	  var oneClick = document.getElementById("shuying");
-      oneClick.style.display="none";
-		}
-function shitou(aaa){
-        var oneClick = document.getElementById("shuying");
-        oneClick.style.display="block";
-		var oneClick = document.getElementById("b");
-        oneClick.style.display="none";
-		document.getElementById("a").src=aaa+".jpg";
-		document.getElementById("player").value=aaa;
-		var num = Math.floor(Math.random()*3+1); 
-		if(num=='1'){
-			document.getElementById("c").src="jiandao.jpg";
-			document.getElementById("npc").value="jiandao";
-		}
-		if(num=='2'){
-			document.getElementById("c").src="shitou.jpg";
-			document.getElementById("npc").value="shitou";
-		}¡¡
-		if(num=='3'){
-			document.getElementById("c").src="bu.jpg";
-			document.getElementById("npc").value="bu";
-		}
-		var times = 0;
-		var player=document.getElementById("player").value;
-		var npc=document.getElementById("npc").value;
-		if(player=="jiandao" && npc=="jiandao"){
-			document.getElementById("shuying").innerHTML="Dogfall!";
-		}
-		if(player=="jiandao" && npc=="shitou"){
-			document.getElementById("shuying").innerHTML="You lose!";
-		}
-		if(player=="jiandao" && npc=="bu"){
-			document.getElementById("shuying").innerHTML="You Win!";
-			times++;
-            document.getElementById('cishu').innerHTML = times;
-			}
-		if(player=="shitou" && npc=="jiandao"){
-			document.getElementById("shuying").innerHTML="You Win!";
-			times++;
-            document.getElementById('cishu').innerHTML = times;
-		}
-        if(player=="shitou" && npc=="shitou"){
-			document.getElementById("shuying").innerHTML="Dogfall!";
-		}
-		if(player=="shitou" && npc=="bu"){
-			document.getElementById("shuying").innerHTML="You lose!";
-			}
-		if(player=="bu" && npc=="jiandao"){
-			document.getElementById("shuying").innerHTML="You lose!";
-		}
-        if(player=="bu" && npc=="shitou"){
-			document.getElementById("shuying").innerHTML="You Win!";
-			times++;
-            document.getElementById('cishu').innerHTML = times;
-		}
-		if(player=="bu" && npc=="bu"){
-			document.getElementById("shuying").innerHTML="Dogfall!";
-			}		
-	}
-</script>
-<style>
-#shuying{
-        color:#F00;
-		font-weight:bold;
-		font-size:25px;
-		text-align:center;
-		}
-p{
-position:relative;
-top:430px;
-}		
-</style>
+<!DOCTYPE html>
+<html lang="en" class=" is-copy-enabled">
+  <head>
+  <meta charset='utf-8'>
+  <title>å‰ªåˆ€çŸ³å¤´å¸ƒ</title>
+  <link rel="stylesheet" href="styles/main.css"></script>
 </head>
 
 <body>
-<center>
-		<table style="margin-top:200px;">
-	<tr>
-	        <td></td>
-	        <td width="168px;" align="center" ></td>
-        	<td></td>
-			</tr>
-    	<tr>
-        	<td width="168px;" align="left" >µã"¿ªÊ¼ÓÎÏ·",³öÈ­°É! </td>
-        	<td width="168px;" align="center" ><input type="hidden" id="player" /><input type="hidden" id="npc" /></td>
-        	<td width="168px;" align="center" >ÄãÒÑ¾­»ñÊ¤ÁË<span id="cishu" style="color:#F00"></span>´Î</td>
-			</tr>
-		<tr>
-        	<td width="168px;" ><img height="133px;" name="a" id="a" class="one" value="¼ôµ¶" onclick="shitou('jiandao');"/></span></td>
-        	<td width="168px;" ><span id="shuying"></span><img height="133px;" name="b" id="b"  value="Ê¯Í·" onclick="shitou('shitou');"/></td>
-        	<td width="168px;" ><img height="133px;" name="c" id="c" class="three" value="²¼" onclick="shitou('bu');"/></td>
-        </tr>
-			<tr>
-	        <td></td>
-	        <td width="168px;" align="center" ><button onclick="start()" >¿ªÊ¼ÓÎÏ·</button></td>
-        	<td></td>
-			</tr>
-<p>²ÂÈ­Ò»´ÎÖ®ºó,¿ÉÒÔµã"¿ªÊ¼ÓÎÏ·"ÔÙÀ´Ò»ÅÌ,Ò²¿ÉÒÔÖ±½Ó¼ÌĞø³öÈ­!</p>
-	    </table>
-</center>
+  <center>
+    <table style="margin-top:200px;">
+      <tr>
+        <td></td>
+        <td width="168px;" align="center" ></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td width="168px;" align="left" >ç‚¹"å¼€å§‹æ¸¸æˆ",å‡ºæ‹³å§! </td>
+        <td width="168px;" align="center" ><input type="hidden" id="player" /><input type="hidden" id="npc" /></td>
+        <td width="168px;" align="center" >ä½ å·²ç»è·èƒœäº†<span id="cishu" style="color:#F00"></span>æ¬¡</td>
+      </tr>
+      <tr>
+        <td width="168px;" ><img height="133px;" name="a" id="a" class="one" value="å‰ªåˆ€" onclick="shitou('jiandao');"/></span></td>
+        <td width="168px;" ><span id="shuying"></span><img height="133px;" name="b" id="b"  value="çŸ³å¤´" onclick="shitou('shitou');"/></td>
+        <td width="168px;" ><img height="133px;" name="c" id="c" class="three" value="å¸ƒ" onclick="shitou('bu');"/></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td width="168px;" align="center" ><button onclick="start()" >å¼€å§‹æ¸¸æˆ</button></td>
+        <td></td>
+      </tr>
+      <p>çŒœæ‹³ä¸€æ¬¡ä¹‹å,å¯ä»¥ç‚¹"å¼€å§‹æ¸¸æˆ"å†æ¥ä¸€ç›˜,ä¹Ÿå¯ä»¥ç›´æ¥ç»§ç»­å‡ºæ‹³!</p>
+    </table>
+  </center>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script src="scripts/main.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,11 @@
+#shuying {
+  color: #F00;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+p {
+  position: relative;
+  top: 430px;
+}
