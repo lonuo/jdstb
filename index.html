@@ -6,62 +6,84 @@
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
 <script type="text/javascript">
 function start(){ 
-            var $html = "<img src='jiandao.jpg' name='a' id='a' class='one' onclick='shitou('jiandao');' />";
-            $($html).replaceAll(".one");
-			var $html = "<img src='shitou.jpg' name='c' id='c' class='two' onclick='shitou('shitou');' />";
-            $($html).replaceAll(".two");
-			var $html = "<img src='bu.jpg' name='b' id='b' class='three' onclick='shitou('bu');' />";
-            $($html).replaceAll(".three");
+      document.getElementById("a").src="jiandao.jpg";
+	  document.getElementById("b").src="shitou.jpg";
+      document.getElementById("c").src="bu.jpg";
+	  var oneClick = document.getElementById("b");
+      oneClick.style.display="block";
+	  var oneClick = document.getElementById("shuying");
+      oneClick.style.display="none";
 		}
 function shitou(aaa){
-		var oneClick = document.getElementById("c");
+        var oneClick = document.getElementById("shuying");
+        oneClick.style.display="block";
+		var oneClick = document.getElementById("b");
         oneClick.style.display="none";
 		document.getElementById("a").src=aaa+".jpg";
-		document.getElementById("you").value=aaa;
-		var a = Math.floor(Math.random()*3+1); 
-		if(a=='1'){
-		 	document.getElementById("b").src="jiandao.jpg";
-			document.getElementById("com").value="jiandao";
-			}
-		if(a=='2'){
-		    document.getElementById("b").src="shitou.jpg";
-			document.getElementById("com").value="shitou";
-			}
-		if(a=='3'){
-		    document.getElementById("b").src="bu.jpg";
-			document.getElementById("com").value="bu";
-			}
-		var you=document.getElementById("you").value;
-		var com=document.getElementById("com").value;
-		if(you=="shitou"&&com=="shitou"){
-			document.getElementById("shuying").innerHTML="平了";
+		document.getElementById("player").value=aaa;
+		var num = Math.floor(Math.random()*3+1); 
+		if(num=='1'){
+			document.getElementById("c").src="jiandao.jpg";
+			document.getElementById("npc").value="jiandao";
 		}
-		if(you=="shitou"&&com=="jiandao"){
-			document.getElementById("shuying").innerHTML="你赢了";
-		}
-		if(you=="shitou"&&com=="bu"){
-			document.getElementById("shuying").innerHTML="你输了";
-		}
-		if(you=="jiandao"&&com=="shitou"){
-			document.getElementById("shuying").innerHTML="你输了";
-		}
-		if(you=="jiandao"&&com=="jiandao"){
-			document.getElementById("shuying").innerHTML="平了";
-		}
-		if(you=="jiandao"&&com=="bu"){
-			document.getElementById("shuying").innerHTML="你赢了";
-		}
-		if(you=="bu"&&com=="shitou"){
-			document.getElementById("shuying").innerHTML="你赢了";
-		}
-		if(you=="bu"&&com=="jiandao"){
-			document.getElementById("shuying").innerHTML="你输了";
-		}
-		if(you=="bu"&&com=="bu"){
-			document.getElementById("shuying").innerHTML="平了";
+		if(num=='2'){
+			document.getElementById("c").src="shitou.jpg";
+			document.getElementById("npc").value="shitou";
 		}　
+		if(num=='3'){
+			document.getElementById("c").src="bu.jpg";
+			document.getElementById("npc").value="bu";
+		}
+		var times = 0;
+		var player=document.getElementById("player").value;
+		var npc=document.getElementById("npc").value;
+		if(player=="jiandao" && npc=="jiandao"){
+			document.getElementById("shuying").innerHTML="Dogfall!";
+		}
+		if(player=="jiandao" && npc=="shitou"){
+			document.getElementById("shuying").innerHTML="You lose!";
+		}
+		if(player=="jiandao" && npc=="bu"){
+			document.getElementById("shuying").innerHTML="You Win!";
+			times++;
+            document.getElementById('cishu').innerHTML = times;
+			}
+		if(player=="shitou" && npc=="jiandao"){
+			document.getElementById("shuying").innerHTML="You Win!";
+			times++;
+            document.getElementById('cishu').innerHTML = times;
+		}
+        if(player=="shitou" && npc=="shitou"){
+			document.getElementById("shuying").innerHTML="Dogfall!";
+		}
+		if(player=="shitou" && npc=="bu"){
+			document.getElementById("shuying").innerHTML="You lose!";
+			}
+		if(player=="bu" && npc=="jiandao"){
+			document.getElementById("shuying").innerHTML="You lose!";
+		}
+        if(player=="bu" && npc=="shitou"){
+			document.getElementById("shuying").innerHTML="You Win!";
+			times++;
+            document.getElementById('cishu').innerHTML = times;
+		}
+		if(player=="bu" && npc=="bu"){
+			document.getElementById("shuying").innerHTML="Dogfall!";
+			}		
 	}
 </script>
+<style>
+#shuying{
+        color:#F00;
+		font-weight:bold;
+		font-size:25px;
+		text-align:center;
+		}
+p{
+position:relative;
+top:430px;
+}		
+</style>
 </head>
 
 <body>
@@ -69,19 +91,25 @@ function shitou(aaa){
 		<table style="margin-top:200px;">
 	<tr>
 	        <td></td>
-	        <td width="168px;" align="center" ><button onclick="start()" >开始游戏</button></td>
+	        <td width="168px;" align="center" ></td>
         	<td></td>
 			</tr>
     	<tr>
-        	<td width="168px;" align="left" >请出拳吧,少年! </td>
-        	<td width="168px;" align="center" ><input type="hidden" id="you" /><input type="hidden" id="com" /></td>
-        	<td width="168px;" align="center" >你已经获胜了次<span id="cishu" style="color:#F00"></span></td>
+        	<td width="168px;" align="left" >点"开始游戏",出拳吧! </td>
+        	<td width="168px;" align="center" ><input type="hidden" id="player" /><input type="hidden" id="npc" /></td>
+        	<td width="168px;" align="center" >你已经获胜了<span id="cishu" style="color:#F00"></span>次</td>
 			</tr>
 		<tr>
-        	<td width="168px;" ><img height="133px;" width="168px" name="a" id="a" class="one" /></span></td>
-        	<td width="168px;" align="center" ><span id="shuying" style="color:#F00"></span><img height="133px;" name="c" id="c" class="two" /></td>
-        	<td width="168px;" ><img height="133px;" width="168px" name="b" id="b" class="three" /></td>
+        	<td width="168px;" ><img height="133px;" name="a" id="a" class="one" value="剪刀" onclick="shitou('jiandao');"/></span></td>
+        	<td width="168px;" ><span id="shuying"></span><img height="133px;" name="b" id="b"  value="石头" onclick="shitou('shitou');"/></td>
+        	<td width="168px;" ><img height="133px;" name="c" id="c" class="three" value="布" onclick="shitou('bu');"/></td>
         </tr>
+			<tr>
+	        <td></td>
+	        <td width="168px;" align="center" ><button onclick="start()" >开始游戏</button></td>
+        	<td></td>
+			</tr>
+<p>猜拳一次之后,可以点"开始游戏"再来一盘,也可以直接继续出拳!</p>
 	    </table>
 </center>
 </body>
