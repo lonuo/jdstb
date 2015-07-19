@@ -1,115 +1,40 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-<title>剪刀石头布</title>
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js" type="text/javascript"></script>
-<script type="text/javascript">
-function start(){ 
-      document.getElementById("a").src="jiandao.jpg";
-	  document.getElementById("b").src="shitou.jpg";
-      document.getElementById("c").src="bu.jpg";
-	  var oneClick = document.getElementById("b");
-      oneClick.style.display="block";
-	  var oneClick = document.getElementById("shuying");
-      oneClick.style.display="none";
-		}
-function shitou(aaa){
-        var oneClick = document.getElementById("shuying");
-        oneClick.style.display="block";
-		var oneClick = document.getElementById("b");
-        oneClick.style.display="none";
-		document.getElementById("a").src=aaa+".jpg";
-		document.getElementById("player").value=aaa;
-		var num = Math.floor(Math.random()*3+1); 
-		if(num=='1'){
-			document.getElementById("c").src="jiandao.jpg";
-			document.getElementById("npc").value="jiandao";
-		}
-		if(num=='2'){
-			document.getElementById("c").src="shitou.jpg";
-			document.getElementById("npc").value="shitou";
-		}　
-		if(num=='3'){
-			document.getElementById("c").src="bu.jpg";
-			document.getElementById("npc").value="bu";
-		}
-		var times = 0;
-		var player=document.getElementById("player").value;
-		var npc=document.getElementById("npc").value;
-		if(player=="jiandao" && npc=="jiandao"){
-			document.getElementById("shuying").innerHTML="Dogfall!";
-		}
-		if(player=="jiandao" && npc=="shitou"){
-			document.getElementById("shuying").innerHTML="You lose!";
-		}
-		if(player=="jiandao" && npc=="bu"){
-			document.getElementById("shuying").innerHTML="You Win!";
-			times++;
-            document.getElementById('cishu').innerHTML = times;
-			}
-		if(player=="shitou" && npc=="jiandao"){
-			document.getElementById("shuying").innerHTML="You Win!";
-			times++;
-            document.getElementById('cishu').innerHTML = times;
-		}
-        if(player=="shitou" && npc=="shitou"){
-			document.getElementById("shuying").innerHTML="Dogfall!";
-		}
-		if(player=="shitou" && npc=="bu"){
-			document.getElementById("shuying").innerHTML="You lose!";
-			}
-		if(player=="bu" && npc=="jiandao"){
-			document.getElementById("shuying").innerHTML="You lose!";
-		}
-        if(player=="bu" && npc=="shitou"){
-			document.getElementById("shuying").innerHTML="You Win!";
-			times++;
-            document.getElementById('cishu').innerHTML = times;
-		}
-		if(player=="bu" && npc=="bu"){
-			document.getElementById("shuying").innerHTML="Dogfall!";
-			}		
-	}
-</script>
-<style>
-#shuying{
-        color:#F00;
-		font-weight:bold;
-		font-size:25px;
-		text-align:center;
-		}
-p{
-position:relative;
-top:430px;
-}		
-</style>
+<!DOCTYPE html>
+<html lang="en" class=" is-copy-enabled">
+  <head>
+  <meta charset='utf-8'>
+  <title>剪刀石头布</title>
+  <link rel="stylesheet" href="styles/main.css"></script>
 </head>
 
 <body>
-<center>
-		<table style="margin-top:200px;">
-	<tr>
-	        <td></td>
-	        <td width="168px;" align="center" ></td>
-        	<td></td>
-			</tr>
-    	<tr>
-        	<td width="168px;" align="left" >点"开始游戏",出拳吧! </td>
-        	<td width="168px;" align="center" ><input type="hidden" id="player" /><input type="hidden" id="npc" /></td>
-        	<td width="168px;" align="center" >你已经获胜了<span id="cishu" style="color:#F00"></span>次</td>
-			</tr>
-		<tr>
-        	<td width="168px;" ><img height="133px;" name="a" id="a" class="one" value="剪刀" onclick="shitou('jiandao');"/></span></td>
-        	<td width="168px;" ><span id="shuying"></span><img height="133px;" name="b" id="b"  value="石头" onclick="shitou('shitou');"/></td>
-        	<td width="168px;" ><img height="133px;" name="c" id="c" class="three" value="布" onclick="shitou('bu');"/></td>
-        </tr>
-			<tr>
-	        <td></td>
-	        <td width="168px;" align="center" ><button onclick="start()" >开始游戏</button></td>
-        	<td></td>
-			</tr>
-<p>猜拳一次之后,可以点"开始游戏"再来一盘,也可以直接继续出拳!</p>
-	    </table>
-</center>
+  <center>
+    <table style="margin-top:200px;">
+      <tr>
+        <td></td>
+        <td width="168px;" align="center" ></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td width="168px;" align="left" >点"开始游戏",出拳吧! </td>
+        <td width="168px;" align="center" ><input type="hidden" id="player" /><input type="hidden" id="npc" /></td>
+        <td width="168px;" align="center" >你已经获胜了<span id="cishu" style="color:#F00"></span>次</td>
+      </tr>
+      <tr>
+        <td width="168px;" ><img height="133px;" name="a" id="a" class="one" value="剪刀" onclick="shitou('jiandao');"/></span></td>
+        <td width="168px;" ><span id="shuying"></span><img height="133px;" name="b" id="b"  value="石头" onclick="shitou('shitou');"/></td>
+        <td width="168px;" ><img height="133px;" name="c" id="c" class="three" value="布" onclick="shitou('bu');"/></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td width="168px;" align="center" ><button onclick="start()" >开始游戏</button></td>
+        <td></td>
+      </tr>
+      <p>猜拳一次之后,可以点"开始游戏"再来一盘,也可以直接继续出拳!</p>
+    </table>
+  </center>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script src="scripts/main.js"></script>
+
 </body>
 </html>
